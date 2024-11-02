@@ -2,7 +2,8 @@
 
 namespace App\Http\Resources\Api;
 
-use App\Filament\Resources\CityResource;
+
+use App\Http\Resources\Api\CityResource;
 use App\Models\OfficeSpaceBenefit;
 use App\Models\OfficeSpaceImage;
 use Illuminate\Http\Request;
@@ -27,7 +28,9 @@ class OfficeSpaceResource extends JsonResource
             'price' => $this->price,
             'thumbnail' => $this->thumbnail,
             'description' => $this->description,
+            // 'city' => new CityResource($this->whenLoaded('city')),
             'city' => new CityResource($this->whenLoaded('city')),
+            // 'city' => $this->city->name ?? null,
             'benefits' => OfficeSpaceBenefitResource::collection($this->whenLoaded('benefits')),
             'image' => OfficeSpaceImageResource::collection($this->whenLoaded('images')),
         ];
