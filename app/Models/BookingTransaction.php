@@ -22,17 +22,17 @@ class BookingTransaction extends Model
        'total_amount',
        'duration',
        'office_space_id',
-       'invoice',
+    //    'invoice',
     ];
 
     public static function generateBookingTrxId()
     {
         $prefix = 'RAO';
-        $formatId = Carbon::now()->setTimezone('Asia/Jakarta')->format('Y-m-d H:i:s T');
+        // $formatId = Carbon::now()->setTimezone('Asia/Jakarta')->format('Y-m-d H:i:s T');
 
         do {
-            // $randomString = $prefix . mt_rand(10000, 99999);
-            $randomString = $prefix . $formatId . mt_rand(10000, 99999);
+            $randomString = $prefix . mt_rand(10000, 99999);
+            // $randomString = $prefix . $formatId . mt_rand(10000, 99999);
         }while (self::where('booking_trx_id', $randomString)->exists());
 
         return $randomString;

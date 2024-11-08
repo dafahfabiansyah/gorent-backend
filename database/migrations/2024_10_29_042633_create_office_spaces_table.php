@@ -28,6 +28,7 @@ return new class extends Migration
             $table->unsignedInteger('duration');
             // refrence to city table in database
             $table->foreignId('city_id')->constrained()->cascadeOnDelete();
+            // $table->foreignId('booking_transaction_id')->constrained()->cascadeOnDelete();
             // as about
             $table->text('description');
             // slug for endpoint in url

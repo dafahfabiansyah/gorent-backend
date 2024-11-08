@@ -16,8 +16,6 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BookingTransactionResource extends Resource
 {
@@ -35,10 +33,6 @@ class BookingTransactionResource extends Resource
 
                 TextInput::make('booking_trx_id')
                 ->label('Booking Transaction ID')
-                ->required()
-                ->maxLength(255),
-
-                TextInput::make('invoice')
                 ->required()
                 ->maxLength(255),
 
